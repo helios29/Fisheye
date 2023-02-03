@@ -3,6 +3,8 @@
 //   displayData(photographers);
 // }
 
+let id = "";
+
 function displayData(photographers) {
   const photographersSection = document.querySelector(".photographer_section");
 
@@ -11,6 +13,8 @@ function displayData(photographers) {
     const userCardDOM = photographerModel.getUserCardDOM();
     photographersSection.appendChild(userCardDOM);
   });
+
+  console.log("id :", id);
 }
 
 function init() {

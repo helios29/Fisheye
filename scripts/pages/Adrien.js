@@ -1,4 +1,4 @@
-function photographerFactory(data) {
+function mediaFactory(data) {
   console.log(data);
 
   const { name, portrait, id, tagline, price, city, country } = data;
@@ -9,7 +9,7 @@ function photographerFactory(data) {
   function getUserCardDOM() {
     //Create elements
     const lien = document.createElement("a");
-    lien.href = url + `/photographer.html?id=${id}`;
+    lien.href = url + `/media.html?id=${id}`;
 
     const article = document.createElement("article");
 
@@ -28,14 +28,34 @@ function photographerFactory(data) {
     const priceElement = document.createElement("p");
     priceElement.innerText = `${price}€/jour`;
 
-    article.appendChild(lien);
-    lien.appendChild(img);
-    lien.appendChild(h2);
+    lien.appendChild(article);
+    article.appendChild(img);
+    article.appendChild(h2);
     article.appendChild(cityCountryElement);
     article.appendChild(taglineElement);
     article.appendChild(priceElement);
 
-    return article;
+    return lien;
   }
-  return { name, picture, tagline, price, city, country, url, getUserCardDOM };
+  return { name, picture, tagline, price, city, country, getUserCardDOM };
 }
+
+function displayData(data) {
+  const mediasSection = document.querySelector(".media_section");
+
+  media.forEach((p) => {
+    const mediaModel = mediaFactory(picture);
+    const userCardDOM = mediaModel.getUserCardDOM();
+    mediasSection.appendChild(userCardDOM);
+  });
+}
+
+function init() {
+  // pas besoin de async car je suis sur .then .catch
+  fetch("/data/photographers.json")
+    .then((response) => response.json()) //read data from the body (promise)
+    .then((data) => console.log(data.media)) //return the promise of the json (which is asynchronous) //getphotographes(data)
+    .catch((err) => console.log(err));
+}
+
+init();
