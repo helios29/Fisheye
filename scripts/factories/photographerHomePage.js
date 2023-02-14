@@ -1,7 +1,7 @@
 function photographerFactory(data) {
   console.log(data);
 
-  const { name, portrait, id, tagline, price, city, country } = data;
+  const { name, portrait, tagline, price, city, country, id } = data;
 
   const picture = `assets/photographers/${portrait}`;
   const url = window.location.href;
@@ -9,9 +9,9 @@ function photographerFactory(data) {
   function getUserCardDOM() {
     //Create elements
     const lien = document.createElement("a");
-    lien.href = url + `/photographer.html?id=${id}`;
+    lien.href = url + `photographer.html?id=${id}`;
 
-    const article = document.createElement("article");
+    const article = document.createElement("div");
 
     const img = document.createElement("img");
     img.setAttribute("src", picture);
@@ -37,5 +37,15 @@ function photographerFactory(data) {
 
     return article;
   }
-  return { name, picture, tagline, price, city, country, url, getUserCardDOM };
+  return {
+    name,
+    picture,
+    tagline,
+    price,
+    city,
+    country,
+    url,
+    id,
+    getUserCardDOM,
+  };
 }

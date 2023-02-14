@@ -2,10 +2,17 @@
 <html>
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/69c2adeeec.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Fisheye - photographe</title>
   </head>
   <body>
     <header>
@@ -13,24 +20,41 @@
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button class="contact_button" onclick="displayModal()">
+          Contactez-moi
+        </button>
       </div>
     </main>
     <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
+      <div class="modal">
+        <header>
+          <h2 id="contact__title">Contactez-moi</h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
+        <form>
+          <div>
+            <label>Prénom</label>
+            <input type="text" id="firstName" name="firstName" required />
+            <label>Nom</label>
+            <input type="text" id="name" name="name" required />
+            <label>Email</label>
+            <input type="email" id="email" name="email" required />
+            <label>Votre message</label>
+            <textarea
+              type="text"
+              id="message"
+              name="message"
+              required
+            ></textarea>
+          </div>
           <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
+        </form>
+      </div>
+    </div>
+    <div class="overlay hidden"></div>
+    <script src="/scripts/utils/scrollButton.js"></script>
+    <script src="/scripts/factories/portfolio.js"></script>
+    <script src="/scripts/factories/photographerHeader.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
   </body>
