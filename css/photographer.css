@@ -7,7 +7,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(130, 129, 127, 0.977);
+  background-color: rgba(48, 48, 47, 0.977);
   height: 300px;
   margin: 0 100px;
 }
@@ -26,8 +26,8 @@
 }
 
 .modal {
-  position: absolute;
-  top: 25%;
+  position: fixed;
+  top: 12.5%;
   left: 25%;
   border-radius: 5px;
   background-color: #db8876;
@@ -38,7 +38,7 @@
   justify-content: space-between;
   padding: 35px;
   margin: auto;
-  z-index: 20;
+  z-index: 3;
   /* transform: translateX(50%);
   transform: translateY(-350%); */
 }
@@ -80,7 +80,7 @@
   height: 200%;
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(3px);
-  z-index: 5;
+  z-index: 2;
 }
 
 .hidden {
@@ -118,6 +118,7 @@ form input {
 }
 
 h2 {
+  font-size: 30px;
   color: #901c1c;
 }
 
@@ -208,6 +209,12 @@ img {
   object-fit: cover;
 }
 
+.video {
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+}
+
 .artsContainer {
   max-width: 1400px;
   width: 86%;
@@ -235,9 +242,43 @@ img {
   margin: 0px 10px;
 }
 
+.artworkTitle {
+  font-size: 17px;
+}
+
 .artworkBtnLike {
   color: #901c1c;
   background-color: black;
-  border-style: none;
+  /* border-style: none; */
   border-radius: 1px solid black;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.stickyLikesPrice {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  width: 300px;
+  height: 50px;
+  bottom: 0px;
+  right: 35px;
+  background-color: rgb(115, 47, 32);
+  color: yellow;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  z-index: 125;
+}
+
+.likesReceived {
+  display: block;
+  color: white;
+  font-size: 20px;
+  padding-right: 30px;
+}
+
+.pricePerDay {
+  color: white;
+  font-size: 20px;
 }

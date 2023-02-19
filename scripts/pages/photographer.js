@@ -16,6 +16,7 @@ function getPhotographerById(id, medias, photographers) {
   const infosPhotographer = photographers.find(
     (photographer) => photographer.id === id
   );
+  console.log("infosPhotographer in getPhotographerById :", infosPhotographer);
 
   return {
     pictures: pictures,
@@ -23,10 +24,16 @@ function getPhotographerById(id, medias, photographers) {
   };
 }
 
-async function photographerPage() {
+function getId() {
   let params = new URL(document.location).searchParams;
-  let id = parseInt(params.get("id"));
-  console.log("id :", id);
+  let idPhotographer = parseInt(params.get("id"));
+  console.log("idPhotographer :", idPhotographer);
+
+  return idPhotographer;
+}
+
+async function photographerPage() {
+  const id = getId();
 
   const { media, photographers } = await getPhotographersData(); // const media = data.media
   console.log("media :", media);
@@ -140,3 +147,5 @@ async function photographerPage() {
 }
 
 photographerPage();
+
+export { photographerPage, getPhotographersData, getPhotographerById, getId };

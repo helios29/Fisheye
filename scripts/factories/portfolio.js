@@ -6,8 +6,6 @@ function portfolioFactory(artwork) {
 
   function getUserCardDOM(firstName) {
     //Create elements
-    let totalLikes = 0;
-    console.log("totalLikes avant le getUserCardDOM:", totalLikes);
     const artworkContainer = document.createElement("div");
     artworkContainer.classList.add("artworkContainer");
     artworkContainer.setAttribute("id", `${id}`);
@@ -18,15 +16,18 @@ function portfolioFactory(artwork) {
     artworkContainer.setAttribute("userLiked", "False");
 
     let picture;
+    let element;
 
     if (!artwork.video) {
       picture = `Pictures/${firstName[0]}/${image}`;
+      element = document.createElement("img");
+      element.setAttribute("src", picture);
     } else {
       picture = `Pictures/${firstName[0]}/${video}`;
+      element = document.createElement("video");
+      element.classList.add("video");
+      element.setAttribute("src", picture);
     }
-
-    const img = document.createElement("img");
-    img.setAttribute("src", picture);
 
     const artworkDescription = document.createElement("div");
     artworkDescription.classList.add("artworkDescription");
@@ -37,13 +38,11 @@ function portfolioFactory(artwork) {
 
     const artworkBtn = document.createElement("button");
     artworkBtn.classList.add("artworkBtnLike");
-    artworkBtn.innerHTML = `${likes}<i class="fa-solid fa-heart"></i>`;
+    artworkBtn.classList.add("notLiked");
 
-    console.log("likes:", likes);
-    totalLikes += likes;
-    console.log("totalLikes getusercarddom:", totalLikes);
+    artworkBtn.innerHTML = `${likes} <i class="fa-solid fa-heart"></i>`;
 
-    artworkContainer.appendChild(img);
+    artworkContainer.appendChild(element);
     artworkContainer.appendChild(artworkDescription);
     artworkDescription.appendChild(artworkTitle);
     artworkDescription.appendChild(artworkBtn);
