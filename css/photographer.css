@@ -144,7 +144,7 @@ h2 {
   transform: translateY(21%);
 }
 
-.btn {
+.filter__btn {
   background-color: #901c1c;
   color: white;
   border-radius: 5px;
@@ -159,26 +159,26 @@ h2 {
   position: relative;
 }
 
-.bx {
-  font-size: 1.1rem;
-}
-
-.dropdown {
+.filter__dropdown {
   position: absolute;
   width: 250px;
   box-shadow: var(--shadow);
   border-radius: var(--radius);
   margin-top: 0.3rem;
-  background: white;
+  background-color: #901c1c;
+  color: white;
   cursor: pointer;
-
   visibility: hidden;
   opacity: 0;
   transform: translateY(0.5rem);
   transition: all 0.1s cubic-bezier(0.16, 1, 0.5, 1);
 }
 
-.dropdown li {
+ul {
+  list-style-type: none;
+}
+
+.filter__dropdown li {
   display: flex;
   align-items: center;
   column-gap: var(--gap);
@@ -249,7 +249,7 @@ img {
 .artworkBtnLike {
   color: #901c1c;
   background-color: black;
-  /* border-style: none; */
+  border-style: none;
   border-radius: 1px solid black;
   font-size: 17px;
   cursor: pointer;

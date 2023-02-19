@@ -82,9 +82,9 @@ async function photographerPage() {
   photographHeader.after(sectionFiltre);
 
   const filterForm = document.createElement("div");
-  filterForm.innerHTML = `<div class="container">
-                            <button class="btn" id="btn">Popularité</button>
-                            <div class="dropdown" id="dropdown">
+  filterForm.classList.add("filter__container");
+  filterForm.innerHTML = `<button class="filter__btn" id="filter__btn">Popularité</button>
+                            <div class="filter__dropdown" id="filter__dropdown">
                               <ul class="nav__links">
                                 <li class="nav__item">
                                   <a class="nav__link" href="#section--1">Popularité</a>

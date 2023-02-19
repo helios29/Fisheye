@@ -1,5 +1,4 @@
 import {
-  photographerPage,
   getPhotographersData,
   getPhotographerById,
   getId,
