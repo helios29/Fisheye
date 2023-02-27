@@ -51,12 +51,28 @@
         </form>
       </div>
     </div>
+    <div class="slider">
+      <div class="closeIconModal">
+        <img src="assets/icons/iconred.png" onclick="closeModal()" />
+      </div>
+      <div class="sliderBody">
+        <div class="btn-nav left">
+          <i class="fa-solid fa-chevron-left"></i>
+        </div>
+        <div class="sliderPhoto"></div>
+        <div class="btn-nav right">
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+      </div>
+    </div>
     <div class="overlay hidden"></div>
+
     <script src="/scripts/factories/portfolio.js"></script>
+    <script type="module" src="/scripts/utils/filters.js"></script>
     <script src="/scripts/factories/photographerHeader.js"></script>
     <script type="module" src="/scripts/pages/photographer.js"></script>
     <script type="module" src="/scripts/utils/likes.js"></script>
-    <script src="/scripts/utils/filters.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
+    <script src="/scripts/utils/slider.js"></script>
   </body>
 </html>

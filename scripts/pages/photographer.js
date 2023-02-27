@@ -1,3 +1,5 @@
+import { filter } from "../utils/filters.js";
+
 //Mettre le code JavaScript lié à la page photographer.html
 
 async function getPhotographersData() {
@@ -70,72 +72,14 @@ async function photographerPage() {
   photographHeader.appendChild(contactButton);
   photographHeader.appendChild(img);
 
-  //Filter
-  const sectionFiltre = document.createElement("div");
-  sectionFiltre.classList.add("filter-module");
-
-  const filter = document.createElement("div");
-  filter.classList.add("filter-titre");
-  filter.innerText = "Trier par";
-
-  sectionFiltre.appendChild(filter);
-  photographHeader.after(sectionFiltre);
-
-  const filterForm = document.createElement("div");
-  filterForm.classList.add("filter__container");
-  filterForm.innerHTML = `<button class="filter__btn" id="filter__btn">Popularité</button>
-                            <div class="filter__dropdown" id="filter__dropdown">
-                              <ul class="nav__links">
-                                <li class="nav__item">
-                                  <a class="nav__link" href="#section--1">Popularité</a>
-                                </li>
-                                <li class="nav__item">
-                                  <a class="nav__link" href="#section--2">Date</a>
-                                </li>
-                                <li class="nav__item">
-                                  <a class="nav__link" href="#section--3">Titre</a>
-                                </li>
-                              <ul>
-                            </div>
-                          </div>`;
-
-  sectionFiltre.appendChild(filterForm);
-
-  const dropdownBtn = document.getElementById("btn");
-  const dropdownMenu = document.getElementById("dropdown");
-
-  // Toggle dropdown open/close when dropdown button is clicked
-  if (dropdownBtn) {
-    dropdownBtn.addEventListener("click", function (e) {
-      console.log("Coucou je suis dans la fonction");
-      e.stopPropagation();
-      document.querySelector(".dropdown").classList.toggle("show");
-    });
-  }
-
-  if (dropdownMenu) {
-    dropdownMenu.addEventListener("click", function (e) {
-      if (e.target.classList.contains("nav__link")) {
-        const link = e.target.textContent;
-
-        console.log("link :", link);
-        dropdownBtn.innerHTML = `<button class="btn" id="btn">
-                                     ${link}
-                                </button>`;
-      }
-    });
-  }
-
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && !dropdownMenu.classList.remove("show")) {
-      dropdownMenu.classList.remove("show");
-    }
-  });
+  //Filter creation
+  const sectionFiltre = filter();
 
   console.log("Pictures in photographer :", photographer.pictures[0].title);
 
   const artsContainer = document.createElement("div");
-  artsContainer.classList.add("artsContainer");
+  artsContainer.setAttribute("id", "artsContainer");
+  // artsContainer.classList.add("artsContainer");
 
   photographer.pictures.forEach((artwork) => {
     const photographerPortfolio = portfolioFactory(artwork);
@@ -148,4 +92,4 @@ async function photographerPage() {
 
 photographerPage();
 
-export { photographerPage, getPhotographersData, getPhotographerById, getId };
+export { getPhotographersData, getPhotographerById, getId };
