@@ -1,17 +1,36 @@
+import {
+  getPhotographersData,
+  getPhotographerById,
+  getId,
+} from "../pages/photographer.js";
 
-const slider = function () {
-  console.log("coucou");
+async function slider() {
+  const data = await getPhotographersData();
+  console.log("data in total like - ", data);
+
+  const id = getId();
+  console.log("getId in total like - ", id);
+
+  const media = data.media;
+  const photographers = data.photographers;
+
+  const photographData = getPhotographerById(id, media, photographers);
+  const firstName = photographData.infosPhotographer.name.split(" ");
+
+  let lightBox = new Lightbox(photographData.pictures);
+  console.log("lightBox in slider: ", lightBox);
+
+  lightBox.manageEvent();
+
+  document
+    .querySelectorAll("#artsContainer .artworkContainer")
+    .forEach((imgGallery) => {
+      imgGallery.addEventListener("click", (e) => {
+        lightBox.show(e.currentTarget.dataset.id, firstName[0]);
+      });
+    });
 }
 
+slider();
 
-const pictureImg = document.getElementsByTagName("img");
-pictureImg.addEventListener("click", slider);
-
-// pictureImg.addEventListener("click", () => {
-//   console.log("coucou");
-//   let pictureClick = this;
-//   // const artworkContainer = this.closest(".artworkContainer");
-
-//   console.log("pictureClick :", pictureClick);
-//   console.log("artworkContainer :", artworkContainer);
-// });
+export { slider };

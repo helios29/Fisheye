@@ -8,7 +8,7 @@ function portfolioFactory(artwork) {
     //Create elements
     const artworkContainer = document.createElement("div");
     artworkContainer.classList.add("artworkContainer");
-    artworkContainer.setAttribute("id", `${id}`);
+    artworkContainer.setAttribute("data-id", `${id}`);
     artworkContainer.setAttribute("photographerId", `${photographerId}`);
     artworkContainer.setAttribute("publishingDate", `${date}`);
     artworkContainer.setAttribute("like", `${likes}`);
@@ -25,7 +25,7 @@ function portfolioFactory(artwork) {
     } else {
       picture = `Pictures/${firstName[0]}/${video}`;
       element = document.createElement("video");
-      element.classList.add("video");
+      element.setAttribute("controls", "true");
       element.setAttribute("src", picture);
     }
 

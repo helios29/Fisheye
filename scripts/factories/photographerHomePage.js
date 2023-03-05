@@ -11,7 +11,8 @@ function photographerFactory(data) {
     const lien = document.createElement("a");
     lien.href = url + `photographer.html?id=${id}`;
 
-    const article = document.createElement("div");
+    const article = document.createElement("article");
+    article.classList.add("photographer_profile");
 
     const img = document.createElement("img");
     img.setAttribute("src", picture);
@@ -19,13 +20,14 @@ function photographerFactory(data) {
     const h2 = document.createElement("h2");
     h2.textContent = name;
 
-    const cityCountryElement = document.createElement("p");
+    const cityCountryElement = document.createElement("h3");
     cityCountryElement.innerText = `${city}, ${country}`;
 
     const taglineElement = document.createElement("p");
     taglineElement.innerText = `${tagline}`;
 
-    const priceElement = document.createElement("p");
+    const priceElement = document.createElement("div");
+    priceElement.classList.add("photographer_price");
     priceElement.innerText = `${price}€/jour`;
 
     article.appendChild(lien);

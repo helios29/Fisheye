@@ -11,7 +11,8 @@ function photographerFactoryHeader(photographer) {
     const h2 = document.createElement("h2");
     h2.textContent = name;
 
-    const cityCountryElement = document.createElement("p");
+    const cityCountryElement = document.createElement("h3");
+    cityCountryElement.classList.add("location");
     cityCountryElement.innerText = `${city}, ${country}`;
 
     const taglineElement = document.createElement("p");

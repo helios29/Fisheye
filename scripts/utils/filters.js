@@ -4,6 +4,8 @@ import {
   getPhotographersData,
 } from "../pages/photographer.js";
 
+import { slider } from "../utils/slider.js";
+
 function filter() {
   const photographHeader = document.querySelector(".photograph-header");
 
@@ -13,23 +15,38 @@ function filter() {
 
   const filter = document.createElement("div");
   filter.classList.add("filter-titre");
-  filter.innerText = "Trier par";
+  filter.innerText = "Trier par :";
 
   sectionFiltre.appendChild(filter);
   console.log("photographHeader in filter", photographHeader);
   photographHeader.after(sectionFiltre);
 
-  const filterForm = document.createElement("div");
-  filterForm.classList.add("filter__container");
-  filterForm.innerHTML = `<button id="filterBtn">Popularité</button>
-                            <ul id="nav__links">
-                              <li class="links">Popularité</li>
-                              <li class="links">Date</li>
-                              <li class="links">Titre</li>
-                            </ul>
-                          </div>`;
+  const filterBtn = document.createElement("button");
+  filterBtn.setAttribute("id", "filterBtn");
+  filterBtn.innerText = "Popularité";
 
-  sectionFiltre.appendChild(filterForm);
+  const filterIcon = document.createElement("div");
+  filterIcon.classList.add("filterIcon");
+  filterIcon.innerHTML = `&lsaquo;`;
+
+  const filterNav = document.createElement("ul");
+  filterNav.setAttribute("id", "nav__links");
+  filterNav.innerHTML = `<li class="links">Date</li>
+                          <li class="links">Titre</li>`;
+
+  // const filterForm = document.createElement("div");
+  // filterForm.classList.add("filter__container");
+  // filterForm.innerHTML = `<button id="filterBtn">Popularité
+  //                         </button>
+  //                         <i class="fa-sharp fa-solid fa-chevron-up"></i>
+  //                         <ul id="nav__links">
+  //                           <li class="links">Date</li>
+  //                           <li class="links">Titre</li>
+  //                         </ul>`;
+
+  sectionFiltre.appendChild(filterBtn);
+  sectionFiltre.appendChild(filterIcon);
+  sectionFiltre.appendChild(filterNav);
 
   filterAction(sectionFiltre);
 
@@ -51,25 +68,39 @@ async function filterAction(sectionFiltre) {
 
   const filterBtn = document.getElementById("filterBtn");
   const list = document.getElementById("nav__links");
+  const filterIcon = document.querySelector(".filterIcon");
 
   list.style.display = "none";
 
   filterBtn.addEventListener("click", () => {
-    if (list.style.display == "none") {
+    if (list.style.display === "none") {
       list.style.display = "block";
+      filterIcon.className = "filterIcon rotate";
     } else {
       list.style.display = "none";
+      filterIcon.className = "filterIcon";
     }
   });
 
   list.addEventListener("click", (e) => {
     if (e.target.classList.contains("links")) {
       const link = e.target.textContent;
+      const filterLi = document.querySelectorAll(".links");
+      const BtnTitle = filterBtn.innerText;
+
+      console.log("filterLi :", filterLi.values());
+      filterLi.forEach((Li) => {
+        console.log("Li.innertext : ", Li.innerText);
+        console.log("link.innertext : ", link);
+        if (Li.innerText === link) {
+          Li.innerText = BtnTitle;
+        }
+      });
 
       console.log("link :", link);
       filterBtn.innerHTML = `${link}`;
 
-      if (link == "Popularité") {
+      if (link === "Popularité") {
         portfolio.sort(function (a, b) {
           if (a.likes > b.likes) {
             return -1;
@@ -79,7 +110,7 @@ async function filterAction(sectionFiltre) {
             return 0;
           }
         });
-      } else if (link == "Date") {
+      } else if (link === "Date") {
         portfolio.sort(function (a, b) {
           let dateA = new Date(a.date);
           let dateB = new Date(b.date);
@@ -88,7 +119,7 @@ async function filterAction(sectionFiltre) {
           else if (dateA < dateB) return -1;
           return 0;
         });
-      } else if (link == "Titre") {
+      } else if (link === "Titre") {
         portfolio.sort(function (a, b) {
           if (a.title < b.title) {
             return -1;
@@ -118,6 +149,7 @@ async function filterAction(sectionFiltre) {
       });
 
       sectionFiltre.after(artsContainer);
+      slider();
     }
   });
 }
