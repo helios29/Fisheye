@@ -66,6 +66,10 @@ async function photographerPage() {
 
   const img = document.createElement("img");
   img.classList.add("idPicture");
+  img.setAttribute(
+    "aria-label",
+    `Photo du photographe ${photographer.infosPhotographer.name}`
+  );
   img.setAttribute("src", photo);
 
   photographHeader.appendChild(userCardDOM);

@@ -23,7 +23,7 @@ async function slider() {
   lightBox.manageEvent();
 
   document
-    .querySelectorAll("#artsContainer .artworkContainer")
+    .querySelectorAll("#artsContainer .artworkContainer img")
     .forEach((imgGallery) => {
       imgGallery.addEventListener("click", (e) => {
         lightBox.show(e.currentTarget.dataset.id, firstName[0]);

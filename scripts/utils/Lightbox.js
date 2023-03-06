@@ -101,13 +101,14 @@ class Lightbox {
         }
       });
 
-    document.querySelector("#lightbox").addEventListener("keyup", (e) => {
+    document.addEventListener("keyup", (e) => {
+      console.log(e.key);
       switch (e.key) {
         case "ArrowRight":
           this.next();
           break;
         case "ArrowLeft":
-          this.previous;
+          this.previous();
           break;
         case "Escape":
           this.close();

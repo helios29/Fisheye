@@ -8,12 +8,12 @@ function portfolioFactory(artwork) {
     //Create elements
     const artworkContainer = document.createElement("div");
     artworkContainer.classList.add("artworkContainer");
+
     artworkContainer.setAttribute("data-id", `${id}`);
     artworkContainer.setAttribute("photographerId", `${photographerId}`);
     artworkContainer.setAttribute("publishingDate", `${date}`);
     artworkContainer.setAttribute("like", `${likes}`);
     artworkContainer.setAttribute("title", `${title}`);
-    artworkContainer.setAttribute("userLiked", "False");
 
     let picture;
     let element;
@@ -22,11 +22,13 @@ function portfolioFactory(artwork) {
       picture = `Pictures/${firstName[0]}/${image}`;
       element = document.createElement("img");
       element.setAttribute("src", picture);
+      element.setAttribute("aria-label", `Image nommée ${title}`);
     } else {
       picture = `Pictures/${firstName[0]}/${video}`;
       element = document.createElement("video");
       element.setAttribute("controls", "true");
       element.setAttribute("src", picture);
+      element.setAttribute("aria-label", `Vidéo nommée ${title}`);
     }
 
     const artworkDescription = document.createElement("div");
@@ -39,6 +41,12 @@ function portfolioFactory(artwork) {
     const artworkBtn = document.createElement("button");
     artworkBtn.classList.add("artworkBtnLike");
     artworkBtn.classList.add("notLiked");
+    artworkBtn.setAttribute("title", `Mettre un like au poste ${title} ?`);
+    artworkBtn.setAttribute("aria-pressed", `false`);
+    artworkBtn.setAttribute(
+      "aria-label",
+      `Bouton pour liker la publication ${title}`
+    );
 
     artworkBtn.innerHTML = `${likes} <i class="fa-solid fa-heart"></i>`;
 

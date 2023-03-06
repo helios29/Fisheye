@@ -23,6 +23,12 @@ function filter() {
 
   const filterBtn = document.createElement("button");
   filterBtn.setAttribute("id", "filterBtn");
+  filterBtn.setAttribute("aria-label", "boutton Popularité");
+  filterBtn.setAttribute("aria-expanded", "false");
+  filterBtn.setAttribute(
+    "aria-label",
+    "Bouton pour ouvrir le filtre des oeuvres d'art"
+  );
   filterBtn.innerText = "Popularité";
 
   const filterIcon = document.createElement("div");
@@ -31,8 +37,8 @@ function filter() {
 
   const filterNav = document.createElement("ul");
   filterNav.setAttribute("id", "nav__links");
-  filterNav.innerHTML = `<li class="links">Date</li>
-                          <li class="links">Titre</li>`;
+  filterNav.innerHTML = `<li class="links" aria-label="boutton Date">Date</li>
+                          <li class="links" aria-label="boutton Titre">Titre</li>`;
 
   // const filterForm = document.createElement("div");
   // filterForm.classList.add("filter__container");
@@ -76,9 +82,11 @@ async function filterAction(sectionFiltre) {
     if (list.style.display === "none") {
       list.style.display = "block";
       filterIcon.className = "filterIcon rotate";
+      filterBtn.setAttribute("aria-expanded", "true");
     } else {
       list.style.display = "none";
       filterIcon.className = "filterIcon";
+      filterBtn.setAttribute("aria-expanded", "false");
     }
   });
 
@@ -90,15 +98,18 @@ async function filterAction(sectionFiltre) {
 
       console.log("filterLi :", filterLi.values());
       filterLi.forEach((Li) => {
+        console.log("filterBtn : ", filterBtn);
         console.log("Li.innertext : ", Li.innerText);
         console.log("link.innertext : ", link);
         if (Li.innerText === link) {
           Li.innerText = BtnTitle;
+          Li.setAttribute("aria-label", `button ${BtnTitle}`);
         }
       });
 
       console.log("link :", link);
       filterBtn.innerHTML = `${link}`;
+      filterBtn.setAttribute("aria-label", `button ${link}`);
 
       if (link === "Popularité") {
         portfolio.sort(function (a, b) {

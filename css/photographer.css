@@ -62,7 +62,7 @@ body {
   justify-content: space-between;
   padding: 35px;
   margin: auto;
-  z-index: 3;
+  z-index: 6;
   /* transform: translateX(50%);
   transform: translateY(-350%); */
 }
@@ -97,7 +97,7 @@ body {
   height: 200%;
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(3px);
-  z-index: 2;
+  z-index: 3;
 }
 
 .hidden {
@@ -217,7 +217,7 @@ form input {
   /* transform: translateY(0.5rem);
   transition: all 0.1s cubic-bezier(0.16, 1, 0.5, 1); */
   border-radius: 5px;
-  z-index: 10;
+  z-index: 5;
 }
 
 #nav__links > li {
@@ -324,7 +324,7 @@ img {
   border-radius: 5px;
   align-items: center;
   justify-content: center;
-  z-index: 125;
+  z-index: 1;
 }
 
 .likesReceived {
@@ -355,6 +355,7 @@ img {
   display: none;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 }
 
 #lightbox.show {
@@ -362,22 +363,22 @@ img {
 }
 
 #lightbox .content {
-  width: 70%;
-  height: 90%;
+  width: 1253px;
+  height: 984px;
   margin: auto;
   display: flex;
   flex-direction: row;
 }
 
 #lightbox .content .picture {
-  width: 80%;
-  height: 90%;
+  width: 1050px;
+  height: 900px;
   object-fit: cover;
 }
 
 #lightbox .content video {
-  width: 80%;
-  height: 90%;
+  width: 1253px;
+  height: 984px;
   object-fit: cover;
 }
 
@@ -412,9 +413,8 @@ img {
 }
 
 #lightbox .content .title {
-  position: absolute;
   bottom: 8%;
   left: 20.5%;
+  font-size: 24px;
   color: #901c1c;
-  font-size: 50px;
 }
