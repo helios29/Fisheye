@@ -22,12 +22,14 @@ export function portfolioFactory(artwork) {
       picture = `Pictures/${firstName[0]}/${image}`;
       element = document.createElement('img');
       element.setAttribute('src', picture);
+      element.setAttribute('class', 'contentArtwork');
       element.setAttribute('aria-label', `Image nommée ${title}`);
     } else {
       picture = `Pictures/${firstName[0]}/${video}`;
       element = document.createElement('video');
       element.setAttribute('controls', 'true');
       element.setAttribute('src', picture);
+      element.setAttribute('class', 'contentArtwork');
       element.setAttribute('aria-label', `Vidéo nommée ${title}`);
     }
 

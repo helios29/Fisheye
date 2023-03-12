@@ -51,9 +51,9 @@ async function totalLikes() {
   stickyLikesPrice.appendChild(likesReceived);
   stickyLikesPrice.appendChild(pricePerDay);
 
-  const overlay = document.querySelector('.overlay');
+  const lightbox = document.querySelector('#lightbox');
 
-  overlay.after(stickyLikesPrice);
+  lightbox.before(stickyLikesPrice);
 
   const updateLikes = function () {
     let likeButton = this;

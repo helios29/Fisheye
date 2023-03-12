@@ -1,10 +1,10 @@
-export class Lightbox {
+export class LightBox {
   constructor(listElement) {
     this.currentElement = null;
     this.listElement = listElement;
   }
 
-  show(id, firstName) {
+  show(id) {
     this.delete();
     this.currentElement = this.getElementById(id);
     console.log(' this.currentElement :', this.currentElement);
@@ -12,15 +12,14 @@ export class Lightbox {
 
     let media;
     let mediaHTML;
-
-    firstName = 'Ellie-Rose';
+    const firstName = this.getPhotographerName();
 
     if (!this.currentElement.video) {
-      media = `Pictures/${firstName}/${this.currentElement.image}`;
+      media = `Pictures/${firstName[0]}/${this.currentElement.image}`;
       mediaHTML = document.createElement('img');
       mediaHTML.classList.add('picture');
     } else {
-      media = `Pictures/${firstName}/${this.currentElement.video}`;
+      media = `Pictures/${firstName[0]}/${this.currentElement.video}`;
       mediaHTML = document.createElement('video');
       mediaHTML.setAttribute('controls', 'true');
     }
@@ -57,7 +56,9 @@ export class Lightbox {
     console.log('this.currentElement', this.currentElement);
 
     this.delete();
-    this.show(this.currentElement.id);
+
+    const firstName = this.getPhotographerName();
+    this.show(this.currentElement.id, firstName[0]);
   }
 
   previous() {
@@ -71,7 +72,8 @@ export class Lightbox {
     }
 
     this.delete();
-    this.show(this.currentElement.id);
+    const firstName = this.getPhotographerName();
+    this.show(this.currentElement.id, firstName[0]);
   }
 
   manageEvent() {
@@ -120,6 +122,14 @@ export class Lightbox {
   getElementById(id) {
     console.log('getElementById(id)', id);
     return this.listElement.find((element) => element.id == id);
+  }
+
+  getPhotographerName(){
+    const namePhotographer = document.querySelector('.photograph-header .photographerInfos h2')
+    const Name = namePhotographer.textContent
+    console.log("----------> Name", Name);
+    
+    return Name.split(' ');
   }
 
   close() {

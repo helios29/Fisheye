@@ -5,7 +5,7 @@ import {
 } from '../pages/photographer.js';
 
 import { slider } from '../utils/slider.js';
-import { portfolioFactory } from '../factories/portfolio';
+import { portfolioFactory } from '../factories/portfolio.js';
 
 function filter() {
   const photographHeader = document.querySelector('.photograph-header');

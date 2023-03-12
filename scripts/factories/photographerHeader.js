@@ -18,14 +18,14 @@ export function photographerFactoryHeader(photographer) {
       'aria-label',
       'lieu de résidence du photographe'
     );
-    cityCountryElement.innerText = '${city}, ${country}';
+    cityCountryElement.innerText = `${city}, ${country}`;
 
     const taglineElement = document.createElement('p');
     taglineElement.setAttribute(
       'aria-label',
       'phrase daccroche du photographe'
     );
-    taglineElement.innerText = '${tagline}';
+    taglineElement.innerText = `${tagline}`;
 
     // lien.appendChild(img);
     photographerInfos.appendChild(h2);

@@ -3,7 +3,7 @@
 //   displayData(photographers);
 // }
 
-import { photographerFactory } from '../factories/photographerHomePage';
+import { photographerFactory } from '../factories/photographerHomePage.js';
 
 let id = '';
 

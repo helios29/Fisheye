@@ -1,6 +1,6 @@
 import { filter } from '../utils/filters.js';
-import { photographerFactoryHeader } from '../factories/photographerHeader';
-import { portfolioFactory } from '../factories/portfolio';
+import { photographerFactoryHeader } from '../factories/photographerHeader.js';
+import { portfolioFactory } from '../factories/portfolio.js';
 
 //Mettre le code JavaScript lié à la page photographer.html
 
@@ -46,7 +46,7 @@ async function photographerPage() {
   const photographer = getPhotographerById(id, media, photographers);
   const photographerName = photographer.infosPhotographer.name;
 
-  const modalTitle = document.getElementById('contact__title');
+  const modalTitle = document.getElementById('modal__header__title');
   console.log('modalTitle :', modalTitle);
   modalTitle.innerHTML += `<br> ${photographerName}`;
   // console.log("modalTitle :", modalTitle);
@@ -60,7 +60,7 @@ async function photographerPage() {
   console.log('userCardDOM :', userCardDOM);
 
   const photographHeader = document.querySelector('.photograph-header');
-  const contactButton = document.querySelector('.contact_button');
+  const contactButton = document.querySelector('.modal');
 
   const { portrait } = photographer.infosPhotographer;
   console.log('portrait', portrait);
@@ -73,8 +73,10 @@ async function photographerPage() {
     `Photo du photographe ${photographer.infosPhotographer.name}`
   );
   img.setAttribute('src', photo);
+  
+  const openModal = document.querySelector('.openModal');
 
-  photographHeader.appendChild(userCardDOM);
+  openModal.before(userCardDOM);
   photographHeader.appendChild(contactButton);
   photographHeader.appendChild(img);
 

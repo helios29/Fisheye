@@ -1,5 +1,5 @@
 body {
-  font-family: "DM Sans", sans-serif;
+  font-family: 'DM Sans', sans-serif;
   margin: 0;
   background-color: black;
 }
@@ -36,7 +36,7 @@ body {
   color: #bab9b9;
 }
 
-.contact_button {
+.contact_modal {
   font-size: 20px;
   font-weight: bold;
   color: white;
@@ -51,7 +51,7 @@ body {
 
 .modal {
   position: fixed;
-  top: 12.5%;
+  top: 5.5%;
   left: 25%;
   border-radius: 5px;
   background-color: #db8876;
@@ -63,19 +63,52 @@ body {
   padding: 35px;
   margin: auto;
   z-index: 6;
-  /* transform: translateX(50%);
-  transform: translateY(-350%); */
+  /* transform: translate(50%, 50%); */
+  display: none;
 }
 
-.modal header {
+.openModal {
+  background-color: #901c1c;
+  color: white;
+  width: 170px;
+  height: 69px;
+  border-radius: 5px;
+  font-size: 20px;
+  border-style: none;
+  cursor: pointer;
+}
+
+.modal--open {
+  display: block;
+}
+
+.modal__header {
+  display: flex;
   justify-content: space-between;
   width: 100%;
 }
 
-.modal header img {
-  height: 40px;
-  width: auto;
+.close-modal {
+  width: 42px;
+  height: 42px;
+  font-size: 50px;
+  padding-top: 30px;
+  background-color: #db8876;
+  color: #d3573c;
+  border-style: none;
   cursor: pointer;
+}
+
+.modal__footer_button {
+  width: 170px;
+  height: 69px;
+  margin-top: 10px;
+  background-color: #901c1c;
+  font-size: 18px;
+  color: white;
+  border-style: none;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 #message {
@@ -228,7 +261,7 @@ form input {
 }
 
 #nav__links .links:before {
-  content: "";
+  content: '';
   text-align: center;
   padding: 0px;
   margin: -7px 0px;
