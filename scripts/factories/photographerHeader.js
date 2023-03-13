@@ -10,20 +10,20 @@ export function photographerFactoryHeader(photographer) {
 
     const h2 = document.createElement('h2');
     h2.textContent = name;
-    h2.setAttribute('aria-label', 'nom du photographe');
+    h2.setAttribute('aria-label', `nom du photographe ${name}`);
 
     const cityCountryElement = document.createElement('h3');
     cityCountryElement.classList.add('location');
     cityCountryElement.setAttribute(
       'aria-label',
-      'lieu de résidence du photographe'
+      `lieu de résidence du photographe ${city}, ${country}`
     );
     cityCountryElement.innerText = `${city}, ${country}`;
 
     const taglineElement = document.createElement('p');
     taglineElement.setAttribute(
       'aria-label',
-      'phrase daccroche du photographe'
+      `phrase daccroche du photographe ${tagline}`
     );
     taglineElement.innerText = `${tagline}`;
 

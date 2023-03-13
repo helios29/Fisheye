@@ -23,11 +23,11 @@ async function slider() {
   lightBox.manageEvent(firstName[0]);
 
   const test = document
-  .querySelectorAll('#artsContainer .artworkContainer')
-  console.log("test : #artsContainer .artworkContainer'", test)
+  .querySelectorAll('#artsContainer .artworkContainer .contentArtwork')
+  console.log("-----_>test : #artsContainer .artworkContainer contentArtwork'", test)
   
   document
-    .querySelectorAll('#artsContainer .artworkContainer')
+    .querySelectorAll('#artsContainer .artworkContainer .contentArtwork')
     .forEach((imgGallery) => {
       imgGallery.addEventListener('click', (e) => {
         e.preventDefault();

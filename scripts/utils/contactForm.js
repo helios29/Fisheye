@@ -8,11 +8,16 @@ const btnCloseModal = document.querySelector('.close-modal');
 
 const openModal = function () {
   modal.classList.add('modal--open');
+  modal.setAttribute('aria-label', 'Vous venez d\'ouvrir la modale');
+  modal.setAttribute('aria-hidden', 'true');
   overlay.classList.remove('hidden');
 };
 
+
 const closeModal = function () {
   modal.classList.remove('modal--open');
+  modal.setAttribute('aria-label', 'Vous venez de fermer la modale');
+  modal.setAttribute('aria-hidden', 'false');
   overlay.classList.add('hidden');
 };
 

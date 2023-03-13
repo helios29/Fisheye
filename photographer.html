@@ -22,38 +22,78 @@
       <div class="photograph-header">
         <button class="openModal">Contactez-moi</button>
         <div class="overlay hidden"></div>
-        <div class="modal">
+        <div
+          class="modal"
+          role="dialog"
+          aria-describedby="Formulaire de message"
+        >
           <div class="modal__header">
             <h2 id="modal__header__title">Contactez-moi</h2>
-            <button class="close-modal">&times;</button>
+            <button
+              class="close-modal"
+              aria-label="fermer la modale pour contacter le photographe"
+            >
+              &times;
+            </button>
           </div>
           <div class="modal__body">
             <form>
               <label>Prénom</label>
-              <input type="text" id="firstName" name="firstName" required />
+              <input
+                aria-describedby="Indiquez votre Prénom"
+                type="text"
+                id="firstName"
+                name="firstName"
+                required
+              />
               <label>Nom</label>
-              <input type="text" id="name" name="name" required />
+              <input
+                aria-selected="Indiquez votre Nom"
+                type="text"
+                id="name"
+                name="name"
+                required
+              />
               <label>Email</label>
-              <input type="email" id="email" name="email" required />
+              <input
+                type="email"
+                aria-label="Indiquez votre Email"
+                id="email"
+                name="email"
+                required
+              />
               <label>Votre message</label>
               <textarea
                 type="text"
                 id="message"
                 name="message"
+                aria-label="Indiquez le message que vous voulez envoyer au photographe"
                 required
               ></textarea>
             </form>
           </div>
           <div class="modal__footer"></div>
-          <button class="modal__footer_button">Envoyer</button>
+          <button
+            class="modal__footer_button"
+            aria-label="Envoyer votre message"
+          >
+            Envoyer
+          </button>
         </div>
       </div>
-      <div id="lightbox">
+      <div id="lightbox" aria-hidden="true">
         <div class="content">
-          <button class="close">x</button>
-          <div class="previous">&lt;</div>
+          <button
+            class="close"
+            aria-label="Fermer la modale pour contacter le photographe"
+          >
+            x
+          </button>
+          <div class="previous" aria-label="Consultez le media précédent">
+            &lt;
+          </div>
 
-          <div class="next">&gt;</div>
+          <div class="next" aria-label="Consultez le media suivant">&gt;</div>
         </div>
       </div>
     </main>

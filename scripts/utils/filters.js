@@ -24,7 +24,7 @@ function filter() {
 
   const filterBtn = document.createElement('button');
   filterBtn.setAttribute('id', 'filterBtn');
-  filterBtn.setAttribute('aria-label', 'boutton Popularité');
+  filterBtn.setAttribute('aria-selected', 'Vous êtes sur le boutton Popularité');
   filterBtn.setAttribute('aria-expanded', 'false');
   filterBtn.setAttribute(
     'aria-label',
@@ -38,8 +38,8 @@ function filter() {
 
   const filterNav = document.createElement('ul');
   filterNav.setAttribute('id', 'nav__links');
-  filterNav.innerHTML = `<li class="links" aria-label="boutton Date">Date</li>
-                          <li class="links" aria-label="boutton Titre">Titre</li>`;
+  filterNav.innerHTML = `<li aria-selected="Vous êtes sur le boutton Date" class="links" >Date</li>
+                          <li aria-selected="Vous êtes sur le boutton Titre" class="links" >Titre</li>`;
 
   // const filterForm = document.createElement("div");
   // filterForm.classList.add("filter__container");

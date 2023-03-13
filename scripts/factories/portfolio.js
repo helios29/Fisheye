@@ -9,7 +9,6 @@ export function portfolioFactory(artwork) {
     const artworkContainer = document.createElement('div');
     artworkContainer.classList.add('artworkContainer');
 
-    artworkContainer.setAttribute('data-id', `${id}`);
     artworkContainer.setAttribute('photographerId', `${photographerId}`);
     artworkContainer.setAttribute('publishingDate', `${date}`);
     artworkContainer.setAttribute('like', `${likes}`);
@@ -23,6 +22,7 @@ export function portfolioFactory(artwork) {
       element = document.createElement('img');
       element.setAttribute('src', picture);
       element.setAttribute('class', 'contentArtwork');
+      element.setAttribute('data-id', `${id}`);
       element.setAttribute('aria-label', `Image nommée ${title}`);
     } else {
       picture = `Pictures/${firstName[0]}/${video}`;
@@ -30,6 +30,7 @@ export function portfolioFactory(artwork) {
       element.setAttribute('controls', 'true');
       element.setAttribute('src', picture);
       element.setAttribute('class', 'contentArtwork');
+      element.setAttribute('data-id', `${id}`);
       element.setAttribute('aria-label', `Vidéo nommée ${title}`);
     }
 
